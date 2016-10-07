@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/XC8_PIC10F200/production\LED.production.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>256</length>
+      <used>58</used>
+      <free>198</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>16</length>
+      <used>9</used>
+      <free>7</free>
+    </memory>
+  </executable>
+</project>
