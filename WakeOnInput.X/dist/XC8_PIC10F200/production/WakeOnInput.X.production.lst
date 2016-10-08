@@ -1,0 +1,393 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.38 build -256452561 
+                                                                                               Sat Oct 08 02:29:09 2016
+
+Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010351
+     1                           	processor	10F200
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	cinit,global,class=ENTRY,merge=1,delta=2
+     5                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     6                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+     7                           	psect	maintext,global,class=CODE,split=1,delta=2
+     8                           	psect	text1,local,class=CODE,merge=1,delta=2
+     9                           	psect	jmp_tab,global,class=ENTRY,delta=2
+    10                           	psect	text2,local,class=CODE,merge=1,delta=2
+    11                           	dabs	1,0x1C,4
+    12  0000                     	;# 
+    13  0001                     	;# 
+    14  0002                     	;# 
+    15  0003                     	;# 
+    16  0004                     	;# 
+    17  0005                     	;# 
+    18  0006                     	;# 
+    19  0000                     	;# 
+    20  0001                     	;# 
+    21  0002                     	;# 
+    22  0003                     	;# 
+    23  0004                     	;# 
+    24  0005                     	;# 
+    25  0006                     	;# 
+    26  0000                     	;# 
+    27  0001                     	;# 
+    28  0002                     	;# 
+    29  0003                     	;# 
+    30  0004                     	;# 
+    31  0005                     	;# 
+    32  0006                     	;# 
+    33  0000                     	;# 
+    34  0001                     	;# 
+    35  0002                     	;# 
+    36  0003                     	;# 
+    37  0004                     	;# 
+    38  0005                     	;# 
+    39  0006                     	;# 
+    40  0000                     	;# 
+    41  0001                     	;# 
+    42  0002                     	;# 
+    43  0003                     	;# 
+    44  0004                     	;# 
+    45  0005                     	;# 
+    46  0006                     	;# 
+    47  0006                     _GPIO	set	6
+    48  0000                     _OPTION	set	0
+    49  0005                     _OSCCAL	set	5
+    50  0006                     _TRISGPIO	set	6
+    51                           
+    52                           ; #config settings
+    53  0000                     
+    54                           	psect	cinit
+    55  001                     start_initialization:	
+    56  001                     __initialization:	
+    57  001                     end_of_initialization:	
+    58                           ;End of C runtime variable initialization code
+    59                           
+    60  001                     __end_of__initialization:	
+    61  001  064                	clrf	4
+    62  002  A03                	ljmp	_main	;jump to C main() function
+    63                           
+    64                           	psect	cstackCOMMON
+    65  000                     __pcstackCOMMON:	
+    66  000                     ??_ConfigureOscillator:	
+    67  000                     ??_InitApp:	
+    68                           ; 1 bytes @ 0x0
+    69                           
+    70                           
+    71                           	psect	cstackBANK0
+    72  010                     __pcstackBANK0:	
+    73                           ; 1 bytes @ 0x0
+    74                           
+    75  010                     ?_ConfigureOscillator:	
+    76  010                     ?_InitApp:	
+    77                           ; 1 bytes @ 0x0
+    78                           
+    79  010                     ?_main:	
+    80                           ; 1 bytes @ 0x0
+    81                           
+    82  010                     ??_main:	
+    83                           ; 1 bytes @ 0x0
+    84                           
+    85                           
+    86                           ; 1 bytes @ 0x0
+    87  010                     	ds	3
+    88                           
+    89                           	psect	maintext
+    90  003                     __pmaintext:	
+    91 ;;
+    92 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+    93 ;;
+    94 ;; *************** function _main *****************
+    95 ;; Defined at:
+    96 ;;		line 19 in file "main.c"
+    97 ;; Parameters:    Size  Location     Type
+    98 ;;		None
+    99 ;; Auto vars:     Size  Location     Type
+   100 ;;		None
+   101 ;; Return value:  Size  Location     Type
+   102 ;;                  1   16[None  ] void 
+   103 ;; Registers used:
+   104 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   105 ;; Tracked objects:
+   106 ;;		On entry : B00/0
+   107 ;;		On exit  : 0/0
+   108 ;;		Unchanged: 0/0
+   109 ;; Data sizes:     COMMON   BANK0
+   110 ;;      Params:         0       0
+   111 ;;      Locals:         0       0
+   112 ;;      Temps:          0       3
+   113 ;;      Totals:         0       3
+   114 ;;Total ram usage:        3 bytes
+   115 ;; Hardware stack levels required when called:    1
+   116 ;; This function calls:
+   117 ;;		_ConfigureOscillator
+   118 ;;		_InitApp
+   119 ;; This function is called by:
+   120 ;;		Startup code after reset
+   121 ;; This function uses a non-reentrant model
+   122 ;;
+   123                           
+   124                           
+   125                           ;psect for function _main
+   126  003                     _main:	
+   127                           
+   128                           ;main.c: 20: ConfigureOscillator();
+   129                           
+   130                           ;incstack = 0
+   131                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   132  003  9FE                	fcall	entry__ConfigureOscillator
+   133                           
+   134                           ;main.c: 22: InitApp();
+   135  004  9FD                	fcall	entry__InitApp
+   136                           
+   137                           ;main.c: 28: OSCCAL = 0b00000001;
+   138  005  C01                	movlw	1
+   139  006  025                	movwf	5	;volatile
+   140                           
+   141                           ;main.c: 32: OPTION = 0b01111111;
+   142  007  C7F                	movlw	127
+   143  008  002                	option
+   144                           
+   145                           ;main.c: 36: TRISGPIO = 0b00001110;
+   146  009  C0E                	movlw	14
+   147  00A  006                	tris	6
+   148                           
+   149                           ;main.c: 41: GPIO = 0b00000000;
+   150  00B  066                	clrf	6	;volatile
+   151                           
+   152                           ;main.c: 42: _delay((unsigned long)((2000)*(4000000L/4000.0)));
+   153  00C  C0B                	movlw	11
+   154  00D  032                	movwf	??_main+2
+   155  00E  C26                	movlw	38
+   156  00F  031                	movwf	??_main+1
+   157  010  C66                	movlw	102
+   158  011  030                	movwf	??_main
+   159  012                     u17:	
+   160  012  2F0                	decfsz	??_main,f
+   161  013  A12                	goto	u17
+   162  014  2F1                	decfsz	??_main+1,f
+   163  015  A12                	goto	u17
+   164  016  2F2                	decfsz	??_main+2,f
+   165  017  A12                	goto	u17
+   166  018  A19                	nop2
+   167  019                     l430:	
+   168                           ;main.c: 43: while (1) {
+   169                           
+   170                           
+   171                           ;main.c: 47: GPIO = 0b00000001;
+   172  019  C01                	movlw	1
+   173  01A  026                	movwf	6	;volatile
+   174                           
+   175                           ;main.c: 48: _delay((unsigned long)((2000)*(4000000L/4000.0)));
+   176  01B  C0B                	movlw	11
+   177  01C  032                	movwf	??_main+2
+   178  01D  C26                	movlw	38
+   179  01E  031                	movwf	??_main+1
+   180  01F  C66                	movlw	102
+   181  020  030                	movwf	??_main
+   182  021                     u27:	
+   183  021  2F0                	decfsz	??_main,f
+   184  022  A21                	goto	u27
+   185  023  2F1                	decfsz	??_main+1,f
+   186  024  A21                	goto	u27
+   187  025  2F2                	decfsz	??_main+2,f
+   188  026  A21                	goto	u27
+   189  027  A28                	nop2
+   190  028  003                	sleep	;# 
+   191  029  A19                	goto	l430
+   192  02A                     __end_of_main:	
+   193                           
+   194                           	psect	text1
+   195  02A                     __ptext1:	
+   196 ;; *************** function _InitApp *****************
+   197 ;; Defined at:
+   198 ;;		line 13 in file "user.c"
+   199 ;; Parameters:    Size  Location     Type
+   200 ;;		None
+   201 ;; Auto vars:     Size  Location     Type
+   202 ;;		None
+   203 ;; Return value:  Size  Location     Type
+   204 ;;                  1    4[None  ] void 
+   205 ;; Registers used:
+   206 ;;		wreg
+   207 ;; Tracked objects:
+   208 ;;		On entry : 0/0
+   209 ;;		On exit  : 0/0
+   210 ;;		Unchanged: 0/0
+   211 ;; Data sizes:     COMMON   BANK0
+   212 ;;      Params:         0       0
+   213 ;;      Locals:         0       0
+   214 ;;      Temps:          0       0
+   215 ;;      Totals:         0       0
+   216 ;;Total ram usage:        0 bytes
+   217 ;; Hardware stack levels used:    1
+   218 ;; This function calls:
+   219 ;;		Nothing
+   220 ;; This function is called by:
+   221 ;;		_main
+   222 ;; This function uses a non-reentrant model
+   223 ;;
+   224                           
+   225                           
+   226                           ;psect for function _InitApp
+   227  02A                     _InitApp:	
+   228  02A  800                	retlw	0
+   229  02B                     __end_of_InitApp:	
+   230                           
+   231                           	psect	jmp_tab
+   232  0FD                     __pjmp_tab:	
+   233                           ;incstack = 0
+   234                           ; Regs used in _InitApp: [wreg]
+   235                           
+   236  0FD                     entry__InitApp:	
+   237  0FD  A2A                	ljmp	_InitApp
+   238  0FE                     entry__ConfigureOscillator:	
+   239                           ;incstack = 0
+   240                           ; Regs used in _ConfigureOscillator: [wreg]
+   241                           
+   242  0FE  A2B                	ljmp	_ConfigureOscillator
+   243                           
+   244                           	psect	text2
+   245  02B                     __ptext2:	
+   246 ;; *************** function _ConfigureOscillator *****************
+   247 ;; Defined at:
+   248 ;;		line 14 in file "system.c"
+   249 ;; Parameters:    Size  Location     Type
+   250 ;;		None
+   251 ;; Auto vars:     Size  Location     Type
+   252 ;;		None
+   253 ;; Return value:  Size  Location     Type
+   254 ;;                  1    2[None  ] void 
+   255 ;; Registers used:
+   256 ;;		wreg
+   257 ;; Tracked objects:
+   258 ;;		On entry : 0/0
+   259 ;;		On exit  : 0/0
+   260 ;;		Unchanged: 0/0
+   261 ;; Data sizes:     COMMON   BANK0
+   262 ;;      Params:         0       0
+   263 ;;      Locals:         0       0
+   264 ;;      Temps:          0       0
+   265 ;;      Totals:         0       0
+   266 ;;Total ram usage:        0 bytes
+   267 ;; Hardware stack levels used:    1
+   268 ;; This function calls:
+   269 ;;		Nothing
+   270 ;; This function is called by:
+   271 ;;		_main
+   272 ;; This function uses a non-reentrant model
+   273 ;;
+   274                           
+   275                           
+   276                           ;psect for function _ConfigureOscillator
+   277  02B                     _ConfigureOscillator:	
+   278  02B  800                	retlw	0
+   279  02C                     __end_of_ConfigureOscillator:	
+   280  001C                     btemp	set	28	;btemp
+   281  001C                     wtemp	set	28
+   282  001C                     wtemp0	set	28
+   283  001E                     wtemp1	set	30
+   284  0020                     wtemp2	set	32
+   285  0022                     wtemp3	set	34
+   286  0024                     wtemp4	set	36
+   287  0026                     wtemp5	set	38
+   288  001D                     wtemp6	set	29
+   289  001C                     ttemp	set	28
+   290  001C                     ttemp0	set	28
+   291  001F                     ttemp1	set	31
+   292  0022                     ttemp2	set	34
+   293  0025                     ttemp3	set	37
+   294  001D                     ttemp4	set	29
+   295  001C                     ltemp	set	28
+   296  001C                     ltemp0	set	28
+   297  0020                     ltemp1	set	32
+   298  0024                     ltemp2	set	36
+   299  001E                     ltemp3	set	30
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            14      3       3
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 3     3      0       0
+                                              0 BANK0      3     3      0
+                _ConfigureOscillator
+                            _InitApp
+ ---------------------------------------------------------------------------------
+ (1) _InitApp                                              0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _ConfigureOscillator                                  0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _ConfigureOscillator
+   _InitApp
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+STACK                0      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+DATA                 0      0       0       1        0.0%
+BITCOMMON            0      0       0       2        0.0%
+BITBANK0             E      0       0       3        0.0%
+COMMON               0      0       0       4        0.0%
+BANK0                E      3       3       5       21.4%
+ABS                  0      0       0       6        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.38 build -256452561 
+Symbol Table                                                                                   Sat Oct 08 02:29:09 2016
+
+                 __CFG_CP$OFF 0000                            u17 0012                            u27 0021  
+                          fsr 0004                           l430 0019                          _GPIO 0006  
+                        _main 0003                          btemp 001C                          ltemp 001C  
+                        start 0000                          ttemp 001C                          wtemp 001C  
+               __CFG_MCLRE$ON 0000               __end_of_InitApp 002B                         ?_main 0010  
+               __CFG_WDTE$OFF 0000           _ConfigureOscillator 002B                         ltemp0 001C  
+                       ltemp1 0020                         ltemp2 0024                         ltemp3 001E  
+                       ttemp0 001C                         ttemp1 001F                         ttemp2 0022  
+                       ttemp3 0025                         ttemp4 001D                         wtemp0 001C  
+                       wtemp1 001E                         wtemp2 0020                         wtemp3 0022  
+                       wtemp4 0024                         wtemp5 0026                         wtemp6 001D  
+        ?_ConfigureOscillator 0010               __initialization 0001                  __end_of_main 002A  
+                      ??_main 0010                        _OSCCAL 0005                        _OPTION 0000  
+                   ??_InitApp 0000         ??_ConfigureOscillator 0000       __end_of__initialization 0001  
+              __pcstackCOMMON 0000                    __pmaintext 0003                       _InitApp 002A  
+                     __ptext1 002A                       __ptext2 002B          end_of_initialization 0001  
+ __end_of_ConfigureOscillator 002C           start_initialization 0001                     ___latbits 0000  
+               __pcstackBANK0 0010                      ?_InitApp 0010                     __pjmp_tab 00FD  
+                    _TRISGPIO 0006     entry__ConfigureOscillator 00FE              __size_of_InitApp 0001  
+               entry__InitApp 00FD                 __size_of_main 0027  __size_of_ConfigureOscillator 0001  

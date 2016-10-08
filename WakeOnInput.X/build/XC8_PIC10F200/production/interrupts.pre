@@ -1,0 +1,285 @@
+
+# 1 "interrupts.c"
+
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.38\include\htc.h"
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
+
+
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.38\include\xc8debug.h"
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+
+# 49 "C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic10f200.h"
+extern volatile unsigned char INDF @ 0x000;
+
+asm("INDF equ 00h");
+
+
+typedef union {
+struct {
+unsigned INDF :8;
+};
+} INDFbits_t;
+extern volatile INDFbits_t INDFbits @ 0x000;
+
+# 68
+extern volatile unsigned char TMR0 @ 0x001;
+
+asm("TMR0 equ 01h");
+
+
+typedef union {
+struct {
+unsigned TMR0 :8;
+};
+} TMR0bits_t;
+extern volatile TMR0bits_t TMR0bits @ 0x001;
+
+# 87
+extern volatile unsigned char PCL @ 0x002;
+
+asm("PCL equ 02h");
+
+
+typedef union {
+struct {
+unsigned PCL :8;
+};
+} PCLbits_t;
+extern volatile PCLbits_t PCLbits @ 0x002;
+
+# 106
+extern volatile unsigned char STATUS @ 0x003;
+
+asm("STATUS equ 03h");
+
+
+typedef union {
+struct {
+unsigned C :1;
+unsigned DC :1;
+unsigned Z :1;
+unsigned nPD :1;
+unsigned nTO :1;
+unsigned :2;
+unsigned GPWUF :1;
+};
+struct {
+unsigned CARRY :1;
+};
+struct {
+unsigned :2;
+unsigned ZERO :1;
+};
+} STATUSbits_t;
+extern volatile STATUSbits_t STATUSbits @ 0x003;
+
+# 173
+extern volatile unsigned char FSR @ 0x004;
+
+asm("FSR equ 04h");
+
+
+typedef union {
+struct {
+unsigned FSR :8;
+};
+} FSRbits_t;
+extern volatile FSRbits_t FSRbits @ 0x004;
+
+# 192
+extern volatile unsigned char OSCCAL @ 0x005;
+
+asm("OSCCAL equ 05h");
+
+
+typedef union {
+struct {
+unsigned FOSC4 :1;
+unsigned CAL :7;
+};
+struct {
+unsigned :1;
+unsigned CAL0 :1;
+unsigned CAL1 :1;
+unsigned CAL2 :1;
+unsigned CAL3 :1;
+unsigned CAL4 :1;
+unsigned CAL5 :1;
+unsigned CAL6 :1;
+};
+} OSCCALbits_t;
+extern volatile OSCCALbits_t OSCCALbits @ 0x005;
+
+# 262
+extern volatile unsigned char GPIO @ 0x006;
+
+asm("GPIO equ 06h");
+
+
+typedef union {
+struct {
+unsigned GP0 :1;
+unsigned GP1 :1;
+unsigned GP2 :1;
+unsigned GP3 :1;
+};
+} GPIObits_t;
+extern volatile GPIObits_t GPIObits @ 0x006;
+
+# 299
+extern volatile __control unsigned char OPTION @ 0x000;
+
+
+extern volatile __control unsigned char TRIS @ 0x006;
+
+
+extern volatile __control unsigned char TRISGPIO @ 0x006;
+
+# 327
+extern volatile __bit CAL0 @ (((unsigned) &OSCCAL)*8) + 1;
+
+extern volatile __bit CAL1 @ (((unsigned) &OSCCAL)*8) + 2;
+
+extern volatile __bit CAL2 @ (((unsigned) &OSCCAL)*8) + 3;
+
+extern volatile __bit CAL3 @ (((unsigned) &OSCCAL)*8) + 4;
+
+extern volatile __bit CAL4 @ (((unsigned) &OSCCAL)*8) + 5;
+
+extern volatile __bit CAL5 @ (((unsigned) &OSCCAL)*8) + 6;
+
+extern volatile __bit CAL6 @ (((unsigned) &OSCCAL)*8) + 7;
+
+extern volatile __bit CARRY @ (((unsigned) &STATUS)*8) + 0;
+
+extern volatile __bit DC @ (((unsigned) &STATUS)*8) + 1;
+
+extern volatile __bit FOSC4 @ (((unsigned) &OSCCAL)*8) + 0;
+
+extern volatile __bit GP0 @ (((unsigned) &GPIO)*8) + 0;
+
+extern volatile __bit GP1 @ (((unsigned) &GPIO)*8) + 1;
+
+extern volatile __bit GP2 @ (((unsigned) &GPIO)*8) + 2;
+
+extern volatile __bit GP3 @ (((unsigned) &GPIO)*8) + 3;
+
+extern volatile __bit GPWUF @ (((unsigned) &STATUS)*8) + 7;
+
+extern volatile __bit ZERO @ (((unsigned) &STATUS)*8) + 2;
+
+extern volatile __bit nPD @ (((unsigned) &STATUS)*8) + 3;
+
+extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
+
+
+# 27 "C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic.h"
+#pragma intrinsic(__nop)
+extern void __nop(void);
+
+
+# 151
+#pragma intrinsic(_delay)
+extern __nonreentrant void _delay(unsigned long);
+
+# 186
+extern unsigned char __resetbits;
+extern __bit __powerdown;
+extern __bit __timeout;
+
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.38\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.38\include\stdbool.h"
+typedef unsigned char bool;
+

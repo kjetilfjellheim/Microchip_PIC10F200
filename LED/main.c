@@ -12,8 +12,7 @@
 #include "user.h"          /* User funct/params, such as InitApp */
 
 /**
- * Had to decrease from 4Mhz to 500Khz to avoid breadboard issue which 
- * caused restarts.
+ * 
  */
 #define _XTAL_FREQ 4000000L
 /**
