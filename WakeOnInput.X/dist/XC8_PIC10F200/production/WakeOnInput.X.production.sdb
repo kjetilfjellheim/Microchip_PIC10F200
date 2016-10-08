@@ -13,7 +13,9 @@
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
 "13 D:\code\githubrepos\Microchip_PIC10F200\WakeOnInput.X\user.c
 [v _InitApp InitApp `(v  1 e 1 0 ]
-"192 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic10f200.h
+"106 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic10f200.h
+[v _STATUS STATUS `VEuc  1 e 1 @3 ]
+"192
 [v _OSCCAL OSCCAL `VEuc  1 e 1 @5 ]
 "262
 [v _GPIO GPIO `VEuc  1 e 1 @6 ]
@@ -24,7 +26,11 @@
 "19 D:\code\githubrepos\Microchip_PIC10F200\WakeOnInput.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"52
+"54
+[v main@readValue readValue `uc  1 a 1 3 ]
+"40
+[v main@status status `uc  1 a 1 4 ]
+"58
 } 0
 "13 D:\code\githubrepos\Microchip_PIC10F200\WakeOnInput.X\user.c
 [v _InitApp InitApp `(v  1 e 1 0 ]

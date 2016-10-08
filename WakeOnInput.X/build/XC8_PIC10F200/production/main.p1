@@ -10,6 +10,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _OPTION `VWuc ~T0 @X0 0 e@0 ]
 "305
 [v _TRISGPIO `VWuc ~T0 @X0 0 e@6 ]
+"106
+[v _STATUS `Vuc ~T0 @X0 0 e@3 ]
 "262
 [v _GPIO `Vuc ~T0 @X0 0 e@6 ]
 [v F125 `(v ~T0 @X0 1 tf1`ul ]
@@ -185,42 +187,55 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 22: InitApp();
 "22
 [e ( _InitApp ..  ]
-[; ;main.c: 28: OSCCAL = 0b00000001;
-"28
+[; ;main.c: 27: OSCCAL = 0b00000001;
+"27
 [e = _OSCCAL -> -> 1 `i `uc ]
-[; ;main.c: 32: OPTION = 0b01111111;
-"32
+[; ;main.c: 31: OPTION = 0b01111111;
+"31
 [e = _OPTION -> -> 127 `i `uc ]
-[; ;main.c: 36: TRISGPIO = 0b00001110;
-"36
+[; ;main.c: 35: TRISGPIO = 0b00001110;
+"35
 [e = _TRISGPIO -> -> 14 `i `uc ]
-[; ;main.c: 41: GPIO = 0b00000000;
+"40
+[v _status `uc ~T0 @X0 1 a ]
+[; ;main.c: 40: unsigned char status = STATUS & 0b10000000;
+[e = _status -> & -> _STATUS `i -> 128 `i `uc ]
+[; ;main.c: 41: if (status) {
 "41
-[e = _GPIO -> -> 0 `i `uc ]
-[; ;main.c: 42: _delay((unsigned long)((2000)*(4000000L/4000.0)));
-"42
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 43: while (1) {
-"43
-[e :U 20 ]
+[e $ ! != -> _status `i -> -> -> 0 `i `uc `i 19  ]
 {
-[; ;main.c: 47: GPIO = 0b00000001;
-"47
-[e = _GPIO -> -> 1 `i `uc ]
-[; ;main.c: 48: _delay((unsigned long)((2000)*(4000000L/4000.0)));
-"48
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 49: asm("sleep");
-"49
-[; <" sleep ;# ">
-"50
+[; ;main.c: 42: GPIO = 0b00000000;
+"42
+[e = _GPIO -> -> 0 `i `uc ]
+[; ;main.c: 43: _delay((unsigned long)((10000)*(4000000L/4000.0)));
+"43
+[e ( __delay (1 -> * -> -> 10000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"44
 }
 [e :U 19 ]
-"43
-[e $U 20  ]
+[; ;main.c: 44: }
+[; ;main.c: 45: while (1) {
+"45
 [e :U 21 ]
-[; ;main.c: 50: }
-[; ;main.c: 52: }
-"52
+{
+[; ;main.c: 49: GPIO = 0b00000001;
+"49
+[e = _GPIO -> -> 1 `i `uc ]
+"54
+[v _readValue `uc ~T0 @X0 1 a ]
+[; ;main.c: 54: unsigned char readValue = GPIO;
+[e = _readValue _GPIO ]
+[; ;main.c: 55: asm("sleep");
+"55
+[; <" sleep ;# ">
+"56
+}
+[e :U 20 ]
+"45
+[e $U 21  ]
+[e :U 22 ]
+[; ;main.c: 56: }
+[; ;main.c: 58: }
+"58
 [e :UE 18 ]
 }

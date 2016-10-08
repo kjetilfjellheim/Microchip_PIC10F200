@@ -295,23 +295,28 @@ ConfigureOscillator();
 
 InitApp();
 
-# 28
+# 27
 OSCCAL = 0b00000001;
 
-# 32
+# 31
 OPTION = 0b01111111;
 
-# 36
+# 35
 TRISGPIO = 0b00001110;
 
-# 41
+# 40
+unsigned char status = STATUS & 0b10000000;
+if (status) {
 GPIO = 0b00000000;
-_delay((unsigned long)((2000)*(4000000L/4000.0)));
+_delay((unsigned long)((10000)*(4000000L/4000.0)));
+}
 while (1) {
 
-# 47
+# 49
 GPIO = 0b00000001;
-_delay((unsigned long)((2000)*(4000000L/4000.0)));
+
+# 54
+unsigned char readValue = GPIO;
 asm("sleep");
 }
 

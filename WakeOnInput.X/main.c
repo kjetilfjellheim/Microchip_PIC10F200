@@ -12,15 +12,23 @@
 #include "user.h"          /* User funct/params, such as InitApp */
 
 /**
- * 
+ * Microcontroller frequency.
  */
 #define _XTAL_FREQ 4000000L
+/**
+ * Delay 10 seconds.
+ */
+#define DELAY 10000
 
 void main(void) {
+    /**
+     * Configure oscillator.
+     */
     ConfigureOscillator();
-
+    /**
+     * Init app.
+     */
     InitApp();
-
     /**
      * Set OSCCAL register. 
      */
@@ -33,19 +41,32 @@ void main(void) {
      * The TRISGPIO register is set with the GP0 as output and GP1 as input.
      */
     TRISGPIO = 0b00001110;
-    
+
     /**
-     * Set all outputs to LOW.
+     * Check if reset was done because of pin change.
      */
-    GPIO = 0b00000000;
-    __delay_ms(2000);
+    unsigned char status = STATUS & 0b10000000;
+    if (status) {
+        /**
+         * Set GP0 to LOW.
+         */
+        GPIO = GPIO & 0b11111110;
+        __delay_ms(DELAY);
+    }
     while (true) {
         /**
          * Set output HIGH for GP0.
          */
-        GPIO = 0b00000001;  
-        __delay_ms(2000);
-        SLEEP();  
+        GPIO = GPIO | 0b00000001;
+        /**
+         * This is done since wakeup is done base on last read.
+         * 
+         */
+        unsigned char readValue = GPIO;
+        /**
+         * Sleep.
+         */
+        SLEEP();
     }
 
 }

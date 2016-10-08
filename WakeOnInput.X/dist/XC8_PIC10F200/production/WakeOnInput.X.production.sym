@@ -1,5 +1,5 @@
 __S0 1000 0 ABS 0
-__S1 13 0 ABS 0
+__S1 15 0 ABS 0
 __S2 0 0 ABS 0
 entry__ConfigureOscillator FE 0 ENTRY 0
 _GPIO 6 0 ABS 0
@@ -31,6 +31,7 @@ __Hconfig 1000 0 CONFIG 0
 __Lconfig FFF 0 CONFIG 0
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
+main@readValue 13 0 BANK0 1
 __Hjmp_tab 0 0 ABS 0
 __Ljmp_tab 0 0 ABS 0
 __pjmp_tab FD 0 ENTRY 0
@@ -45,17 +46,18 @@ __Labs1 0 0 ABS 0
 __Hsfr0 0 0 ABS 0
 __Lsfr0 0 0 ABS 0
 _OPTION 0 0 ABS 0
+_STATUS 3 0 ABS 0
 __Hcode 0 0 ABS 0
 __Lcode 0 0 ABS 0
 stackhi 0 0 ABS 0
 __HcstackBANK0 0 0 ABS 0
 __LcstackBANK0 0 0 ABS 0
-__end_of_ConfigureOscillator 2C 0 CODE 0
+__end_of_ConfigureOscillator 26 0 CODE 0
 __pcstackBANK0 10 0 BANK0 1
 stacklo 0 0 ABS 0
 __Hinit 0 0 ENTRY 0
 __Linit 0 0 ENTRY 0
-__end_of_main 2A 0 CODE 0
+__end_of_main 24 0 CODE 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 end_of_initialization 1 0 ENTRY 0
@@ -67,11 +69,11 @@ __Lbank0 0 0 ABS 0
 ___latbits 0 0 ABS 0
 __Hpowerup 0 0 CODE 0
 __Lpowerup 0 0 CODE 0
-__ptext1 2A 0 CODE 0
-__ptext2 2B 0 CODE 0
+__ptext1 24 0 CODE 0
+__ptext2 25 0 CODE 0
 __Hclrtext 3 0 ENTRY 0
 __Lclrtext 3 0 ENTRY 0
-__end_of_InitApp 2B 0 CODE 0
+__end_of_InitApp 25 0 CODE 0
 __end_of__initialization 1 0 ENTRY 0
 __Hidloc 0 0 IDLOC 0
 __Lidloc 0 0 IDLOC 0
@@ -79,8 +81,8 @@ __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
 __Hspace_0 1000 0 ABS 0
 __Lspace_0 0 0 ABS 0
-_InitApp 2A 0 CODE 0
-__Hspace_1 13 0 ABS 0
+_InitApp 24 0 CODE 0
+__Hspace_1 15 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
@@ -101,45 +103,48 @@ __HcstackCOMMON 0 0 ABS 0
 __LcstackCOMMON 0 0 ABS 0
 __pcstackCOMMON 0 0 COMMON 1
 start_initialization 1 0 ENTRY 0
+main@status 14 0 BANK0 1
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
 __pmaintext 3 0 CODE 0
 __CFG_MCLRE$ON 0 0 ABS 0
 __initialization 1 0 ENTRY 0
 __CFG_CP$OFF 0 0 ABS 0
-_ConfigureOscillator 2B 0 CODE 0
+_ConfigureOscillator 25 0 CODE 0
 %segments
 reset_vec 1FE 1FF CODE 1FE 0
 reset_wrap 0 5 ENTRY 0 0
 config 1FFE 1FFF CONFIG 1FFE 0
-cstackBANK0 10 12 BANK0 10 1
-maintext 6 57 CODE 6 0
+cstackBANK0 10 14 BANK0 10 1
+maintext 6 4B CODE 6 0
 jmp_tab 1FA 1FD ENTRY 1FA 0
 %locals
 dist/XC8_PIC10F200/production\WakeOnInput.X.production.obj
-C:\Users\Kjetil\AppData\Local\Temp\sdps.
-133 1 0 ENTRY 0
-136 1 0 ENTRY 0
-142 1 0 ENTRY 0
+C:\Users\Kjetil\AppData\Local\Temp\s3l8.
+135 1 0 ENTRY 0
+138 1 0 ENTRY 0
 144 1 0 ENTRY 0
-145 2 0 ENTRY 0
+146 1 0 ENTRY 0
+147 2 0 ENTRY 0
 main.c
 19 3 0 CODE 0
 20 3 0 CODE 0
 22 4 0 CODE 0
-28 5 0 CODE 0
-32 7 0 CODE 0
-36 9 0 CODE 0
-41 B 0 CODE 0
-42 C 0 CODE 0
-47 19 0 CODE 0
-48 1B 0 CODE 0
-49 28 0 CODE 0
-43 29 0 CODE 0
+27 5 0 CODE 0
+31 7 0 CODE 0
+35 9 0 CODE 0
+40 B 0 CODE 0
+41 E 0 CODE 0
+42 11 0 CODE 0
+43 12 0 CODE 0
+49 1E 0 CODE 0
+54 20 0 CODE 0
+55 22 0 CODE 0
+45 23 0 CODE 0
 user.c
-13 2A 0 CODE 0
-16 2A 0 CODE 0
+13 24 0 CODE 0
+16 24 0 CODE 0
 13 FD 0 ENTRY 0
 system.c
 14 FE 0 ENTRY 0
-17 2B 0 CODE 0
+17 25 0 CODE 0
