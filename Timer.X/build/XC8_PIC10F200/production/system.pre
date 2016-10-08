@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "system.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.38\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -286,46 +286,9 @@ typedef unsigned char bool;
 # 19 "system.h"
 void ConfigureOscillator(void);
 
-# 13 "user.h"
-void InitApp(void);
+# 18 "system.c"
+void ConfigureOscillator(void)
+{
 
-# 23 "main.c"
-void main(void) {
-
-# 27
-ConfigureOscillator();
-
-# 31
-InitApp();
-
-# 35
-OSCCAL = 0b00000001;
-
-# 39
-OPTION = 0b01111111;
-
-# 43
-TRISGPIO = 0b00001110;
-
-# 48
-unsigned char status = STATUS & 0b10000000;
-if (status) {
-
-# 53
-GPIO = GPIO & 0b11111110;
-_delay((unsigned long)((10000)*(4000000L/4000.0)));
+# 40
 }
-while (1) {
-
-# 60
-GPIO = GPIO | 0b00000001;
-
-# 65
-unsigned char readValue = GPIO;
-
-# 69
-asm("sleep");
-}
-
-}
-

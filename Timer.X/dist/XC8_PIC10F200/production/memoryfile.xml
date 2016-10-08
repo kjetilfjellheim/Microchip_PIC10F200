@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/XC8_PIC10F200/production\WakeOnInput.X.production.hex">
+  <executable name="dist/XC8_PIC10F200/production\Timer.X.production.hex">
     <memory name="program">
       <units>words</units>
       <length>256</length>
-      <used>43</used>
-      <free>213</free>
+      <used>51</used>
+      <free>205</free>
     </memory>
     <memory name="data">
       <units>bytes</units>

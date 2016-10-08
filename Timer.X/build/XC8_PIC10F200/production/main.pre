@@ -299,33 +299,40 @@ ConfigureOscillator();
 InitApp();
 
 # 35
-OSCCAL = 0b00000001;
+OSCCAL = 0b11111110;
 
-# 39
-OPTION = 0b01111111;
+# 41
+OPTION = 0b01101111;
 
-# 43
+# 45
 TRISGPIO = 0b00001110;
 
-# 48
-unsigned char status = STATUS & 0b10000000;
-if (status) {
+# 49
+unsigned int timerClockCount = 0;
 
 # 53
-GPIO = GPIO & 0b11111110;
-_delay((unsigned long)((10000)*(4000000L/4000.0)));
-}
+GPIO = 0b00000000;
+
+# 57
+TMR0 = 0;
 while (1) {
 
-# 60
-GPIO = GPIO | 0b00000001;
+# 62
+timerClockCount = TMR0;
+if (timerClockCount > 10) {
 
-# 65
-unsigned char readValue = GPIO;
+# 67
+GPIO = 0b00000001;
 
-# 69
-asm("sleep");
+# 71
+_delay((unsigned long)((2000)*(4000000L/4000.0)));
+
+# 75
+TMR0 = 0;
+
+# 79
+GPIO = 0b00000000;
+}
 }
 
 }
-

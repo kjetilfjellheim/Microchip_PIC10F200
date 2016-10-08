@@ -1,23 +1,4 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"19 system.h
-[v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
-"13 user.h
-[v _InitApp `(v ~T0 @X0 0 ef ]
-"192 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic10f200.h
-[v _OSCCAL `Vuc ~T0 @X0 0 e@5 ]
-"299
-[v _OPTION `VWuc ~T0 @X0 0 e@0 ]
-"305
-[v _TRISGPIO `VWuc ~T0 @X0 0 e@6 ]
-"106
-[v _STATUS `Vuc ~T0 @X0 0 e@3 ]
-"262
-[v _GPIO `Vuc ~T0 @X0 0 e@6 ]
-[v F125 `(v ~T0 @X0 1 tf1`ul ]
-"152 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic.h
-[v __delay `JF125 ~T0 @X0 0 e ]
-[p i __delay ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -173,69 +154,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;system.h: 19: void ConfigureOscillator(void);
 [; ;user.h: 13: void InitApp(void);
-"23 main.c
-[v _main `(v ~T0 @X0 1 ef ]
+"13 user.c
+[v _InitApp `(v ~T0 @X0 1 ef ]
+"14
 {
-[; ;main.c: 23: void main(void) {
-[e :U _main ]
+[; ;user.c: 13: void InitApp(void)
+[; ;user.c: 14: {
+[e :U _InitApp ]
 [f ]
-[; ;main.c: 27: ConfigureOscillator();
-"27
-[e ( _ConfigureOscillator ..  ]
-[; ;main.c: 31: InitApp();
-"31
-[e ( _InitApp ..  ]
-[; ;main.c: 35: OSCCAL = 0b00000001;
-"35
-[e = _OSCCAL -> -> 1 `i `uc ]
-[; ;main.c: 39: OPTION = 0b01111111;
-"39
-[e = _OPTION -> -> 127 `i `uc ]
-[; ;main.c: 43: TRISGPIO = 0b00001110;
-"43
-[e = _TRISGPIO -> -> 14 `i `uc ]
-"48
-[v _status `uc ~T0 @X0 1 a ]
-[; ;main.c: 48: unsigned char status = STATUS & 0b10000000;
-[e = _status -> & -> _STATUS `i -> 128 `i `uc ]
-[; ;main.c: 49: if (status) {
-"49
-[e $ ! != -> _status `i -> -> -> 0 `i `uc `i 19  ]
-{
-[; ;main.c: 53: GPIO = GPIO & 0b11111110;
-"53
-[e = _GPIO -> & -> _GPIO `i -> 254 `i `uc ]
-[; ;main.c: 54: _delay((unsigned long)((10000)*(4000000L/4000.0)));
-"54
-[e ( __delay (1 -> * -> -> 10000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"55
-}
-[e :U 19 ]
-[; ;main.c: 55: }
-[; ;main.c: 56: while (1) {
-"56
-[e :U 21 ]
-{
-[; ;main.c: 60: GPIO = GPIO | 0b00000001;
-"60
-[e = _GPIO -> | -> _GPIO `i -> 1 `i `uc ]
-"65
-[v _readValue `uc ~T0 @X0 1 a ]
-[; ;main.c: 65: unsigned char readValue = GPIO;
-[e = _readValue _GPIO ]
-[; ;main.c: 69: asm("sleep");
-"69
-[; <" sleep ;# ">
-"70
-}
-[e :U 20 ]
-"56
-[e $U 21  ]
-[e :U 22 ]
-[; ;main.c: 70: }
-[; ;main.c: 72: }
-"72
+[; ;user.c: 16: }
+"16
 [e :UE 18 ]
 }

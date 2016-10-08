@@ -3,10 +3,10 @@ Microchip MPLAB XC8 Compiler V1.38 ()
 Linker command line:
 
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.38\dat\en_msgs.txt -cs \
-  -h+dist/XC8_PIC10F200/production\WakeOnInput.X.production.sym \
-  --cmf=dist/XC8_PIC10F200/production\WakeOnInput.X.production.cmf -z \
-  -Q10F200 -oC:\Users\Kjetil\AppData\Local\Temp\scj0.2 \
-  -Mdist/XC8_PIC10F200/production/WakeOnInput.X.production.map -E1 -ver=XC8 \
+  -h+dist/XC8_PIC10F200/production\Timer.X.production.sym \
+  --cmf=dist/XC8_PIC10F200/production\Timer.X.production.cmf -z -Q10F200 \
+  -oC:\Users\Kjetil\AppData\Local\Temp\s5j0.2 \
+  -Mdist/XC8_PIC10F200/production/Timer.X.production.map -E1 -ver=XC8 \
   -ASTACK=015h-01bh -pstack=STACK -ACODE=00h-0FEh -ASTRCODE=00h-0FEh \
   -ASTRING=00h-0FEh -AENTRY=00h-0FFh-0FEh -ABANK0=010h-01Dh -ARAM=010h-01Dh \
   -AABS1=010h-01Fh -ACOMMON=01Ch-01Fh -ASFR0=00h-0Fh \
@@ -14,8 +14,8 @@ Linker command line:
   -pfunctab=ENTRY -ACONFIG=0FFFh-0FFFh -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=0100h-0103h -pidloc=IDLOC -DIDLOC=2 -pstrings=-STRING -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\Kjetil\AppData\Local\Temp\scj0.obj \
-  dist/XC8_PIC10F200/production\WakeOnInput.X.production.obj 
+  C:\Users\Kjetil\AppData\Local\Temp\s5j0.obj \
+  dist/XC8_PIC10F200/production\Timer.X.production.obj 
 
 Object code version is 3.11
 
@@ -24,16 +24,16 @@ Machine type is 10F200
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Kjetil\AppData\Local\Temp\scj0.obj
+C:\Users\Kjetil\AppData\Local\Temp\s5j0.obj
                 end_init                              0        0        1        0       0
                 reset_vec                            FF       FF        1      1FE       0
                 config                              FFF      FFF        1     1FFE       0
-dist/XC8_PIC10F200/production\WakeOnInput.X.production.obj
+dist/XC8_PIC10F200/production\Timer.X.production.obj
                 cinit                                 1        1        2        0       0
-                text2                                28       28        1        6       0
+                text2                                30       30        1        6       0
                 jmp_tab                              FD       FD        2      1FA       0
-                text1                                27       27        1        6       0
-                maintext                              3        3       24        6       0
+                text1                                2F       2F        1        6       0
+                maintext                              3        3       2C        6       0
                 cstackBANK0                          10       10        5       10       1
 
 TOTAL           Name                               Link     Load   Length     Space
@@ -41,9 +41,9 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   CODE           
                 reset_vec                            FF       FF        1         0
-                text2                                28       28        1         0
-                text1                                27       27        1         0
-                maintext                              3        3       24         0
+                text2                                30       30        1         0
+                text1                                2F       2F        1         0
+                maintext                              3        3       2C         0
 
         CLASS   STRCODE        
 
@@ -78,7 +78,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_wrap                     000000  000003  000003         0       0  ENTRY       2
-                maintext                       000003  000026  000029         6       0  CODE        2
+                maintext                       000003  00002E  000031         6       0  CODE        2
                 cstackBANK0                    000010  000005  000015        10       1  BANK0       1
                 jmp_tab                        0000FD  000002  0000FF       1FA       0  ENTRY       2
                 reset_vec                      0000FF  000001  000100       1FE       0  CODE        2
@@ -89,23 +89,23 @@ UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
         BANK0            0015-001B              7           1
-        CODE             0029-00FC             D4           2
-        ENTRY            0029-00FC             D4           2
+        CODE             0031-00FC             CC           2
+        ENTRY            0031-00FC             CC           2
         IDLOC            0100-0103              4           2
         RAM              0015-001B              7           1
         SFR0             0000-000F             10           1
         STACK            0015-001B              7           1
-        STRCODE          0029-00FC             D4           2
-        STRING           0029-00FC             D4           2
+        STRCODE          0031-00FC             CC           2
+        STRING           0031-00FC             CC           2
 
                                   Symbol Table
 
-_ConfigureOscillator          text2        0028
+_ConfigureOscillator          text2        0030
 _GPIO                         (abs)        0006
-_InitApp                      text1        0027
+_InitApp                      text1        002F
 _OPTION                       (abs)        0000
 _OSCCAL                       (abs)        0005
-_STATUS                       (abs)        0003
+_TMR0                         (abs)        0001
 _TRISGPIO                     (abs)        0006
 __CFG_CP$OFF                  (abs)        0000
 __CFG_MCLRE$ON                (abs)        0000
@@ -168,17 +168,17 @@ __S2                          (abs)        0000
 ___int_sp                     stack        0000
 ___latbits                    (abs)        0000
 ___sp                         stack        0000
-__end_of_ConfigureOscillator  text2        0029
-__end_of_InitApp              text1        0028
+__end_of_ConfigureOscillator  text2        0031
+__end_of_InitApp              text1        0030
 __end_of__initialization      cinit        0001
-__end_of_main                 maintext     0027
+__end_of_main                 maintext     002F
 __initialization              cinit        0001
 __pcstackBANK0                cstackBANK0  0010
 __pcstackCOMMON               cstackCOMMON 0000
 __pjmp_tab                    jmp_tab      00FD
 __pmaintext                   maintext     0003
-__ptext1                      text1        0027
-__ptext2                      text2        0028
+__ptext1                      text1        002F
+__ptext2                      text2        0030
 __size_of_ConfigureOscillator (abs)        0000
 __size_of_InitApp             (abs)        0000
 __size_of_main                (abs)        0000
@@ -192,8 +192,7 @@ ltemp0                        (abs)        001C
 ltemp1                        (abs)        0020
 ltemp2                        (abs)        0024
 ltemp3                        (abs)        001E
-main@readValue                cstackBANK0  0013
-main@status                   cstackBANK0  0014
+main@timerClockCount          cstackBANK0  0013
 reset_vec                     reset_vec    00FF
 stackhi                       (abs)        0000
 stacklo                       (abs)        0000
@@ -223,12 +222,11 @@ FUNCTION INFORMATION:
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  readValue       1    3[BANK0 ] unsigned char 
-  status          1    4[BANK0 ] unsigned char 
+  timerClockCo    2    3[BANK0 ] unsigned int 
  Return value:  Size  Location     Type
                   1   18[None  ] void 
  Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+0, btemp+1, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -279,7 +277,7 @@ Total ram usage:        0 bytes
 
  *************** function _ConfigureOscillator *****************
  Defined at:
-		line 14 in file "system.c"
+		line 18 in file "system.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -316,17 +314,17 @@ shared
 shared estimated size: 1
 
 user.c
-		_InitApp       		CODE           	0027	0000	2
+		_InitApp       		CODE           	002F	0000	2
 
 user.c estimated size: 2
 
 main.c
-		_main          		CODE           	0003	0000	37
+		_main          		CODE           	0003	0000	45
 
-main.c estimated size: 37
+main.c estimated size: 45
 
 system.c
-		_ConfigureOscillator		CODE           	0028	0000	2
+		_ConfigureOscillator		CODE           	0030	0000	2
 
 system.c estimated size: 2
 
